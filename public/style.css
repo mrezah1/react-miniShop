@@ -1,0 +1,10 @@
+body {
+  background-color: skyblue !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
