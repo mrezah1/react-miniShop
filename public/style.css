@@ -8,3 +8,16 @@ body {
 a {
   text-decoration: none;
 }
+button {
+  outline: none !important;
+  cursor: pointer;
+}
+.custom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fh:hover {
+  opacity: 0.88;
+  transition: 0.2s all;
+}

@@ -1,7 +1,5 @@
-import React from 'react'
-
 const icons={
-    delete:require('../assets/delete.svg')
+    delete:require('../assets/delete.svg').default
 }
 
 export default icons
