@@ -59,7 +59,14 @@ const Main = (props) => {
       })
     setOrders(newOrders)
   }
-
+  useEffect(() => {
+    const orderItems = JSON.parse(localStorage.getItem('orders'))
+    console.log(orderItems)
+    setOrders(orderItems)
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('orders', JSON.stringify(orders))
+  }, [orders])
   return (
     <div className="col-12 col-md-9 py-5 mx-auto main text-center">
       <h2>My Cart</h2>
