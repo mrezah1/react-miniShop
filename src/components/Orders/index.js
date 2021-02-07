@@ -1,7 +1,7 @@
 import React from "react";
 import Order from "./Order";
+import Curency from "../../util/Curency";
 import Wrapper from "../../hoc/Wrapper";
-import "./style.css";
 
 const Orders = ({ orders, plusFn, minusFn, deleteFn }) => (
   <Wrapper>
@@ -23,10 +23,13 @@ const Orders = ({ orders, plusFn, minusFn, deleteFn }) => (
       />
     ))}
     <div>
-      <p className="mt-4">
+      <p className="m-0 mt-4">
         Total Price :
-        <span className="badge badge-primary ml-2 p-2" style={{ fontSize: 15 }}>
-          {orders.reduce((acc, { price, count }) => acc + price * count, 0)}
+        <span className="badge badge-success ml-2 p-2" style={{ fontSize: 15 }}>
+          {Curency(
+            orders.reduce((acc, { price, count }) => acc + price * count, 0),
+            true
+          )}
         </span>
       </p>
     </div>

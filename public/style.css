@@ -10,6 +10,7 @@ a {
 }
 button {
   outline: none !important;
+  border: none;
   cursor: pointer;
 }
 .custom-flex {

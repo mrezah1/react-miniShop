@@ -1,0 +1,16 @@
+.product-item__main {
+  margin-top: -5px;
+  z-index: 1;
+  position: relative;
+}
+.product-item__title{
+    font-size: 17px;
+}
+.product-item__price{
+    font-size: 17px;
+    font-weight: bold;
+}
+.product-item__add{
+    width: 100%;
+    border-radius: 5px;
+}
