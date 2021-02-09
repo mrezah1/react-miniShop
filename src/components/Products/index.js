@@ -9,7 +9,7 @@ const Products = ({ products, addToCart }) => {
           title={title}
           price={price}
           image={image}
-          addToCart={() => addToCart(products[index])}
+          addToCart={(e) => addToCart(e, products[index])}
         />
       ))}
     </div>

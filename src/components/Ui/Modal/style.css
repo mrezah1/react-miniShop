@@ -1,0 +1,30 @@
+.myModal{
+    background-color: #fff;
+    padding:1.5rem;
+    border-radius: 3px;
+    min-width: 80%;
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: .33s all;
+}
+@media only screen and (min-width:576px){
+    .myModal{
+        min-width: 50%;
+    }
+}
+@media only screen and (min-width:768px){
+.myModal{
+    min-width: 38%;
+}
+}
+@media only screen and (min-width:992px){
+    .myModal{
+        min-width: 25%;
+    }
+}
+.custom-brc{
+    border-color: #ebebeb !important;
+  }

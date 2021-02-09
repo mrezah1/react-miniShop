@@ -1,0 +1,16 @@
+.ok{
+    color: #fff;
+    background-color: #3a93eaff;
+}
+.cancle{
+    background-color: transparent;
+    color: #3a93eaff;
+}
+.cancle:hover{
+    background-color: #ebf2f9ff;
+}
+.custom-button{
+    border-radius: 2.5px;
+    padding: 5px 11px;
+    transition: .22s all ease-out;    
+}

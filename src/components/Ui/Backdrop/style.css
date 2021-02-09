@@ -1,0 +1,15 @@
+.backdrop{
+    position: fixed;
+    background-color: rgba(0,0,0,.66);
+    top: 0;
+    right: 0;
+    width: 100%;    
+    height: 100%;
+    z-index: 99;
+}
+.hideSc{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}

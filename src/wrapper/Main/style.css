@@ -3,4 +3,9 @@
     box-shadow: inset 0 0 50px 10px rgba(255,255,255,.4);
     border-radius: 4px;  
   }
+  .btn-continue{
+    border-radius: 2.5px;
+    padding: 6px 14px;
+    background-color:#784cc9;
+  }
   

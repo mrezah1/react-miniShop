@@ -1,9 +1,9 @@
-import React from "react";
-import Order from "./Order";
-import Curency from "../../util/Curency";
-import Wrapper from "../../hoc/Wrapper";
+import React from 'react'
+import Order from './Order'
+import Curency from '../../util/Curency'
+import Wrapper from '../../hoc/Wrapper'
 
-const Orders = ({ orders, plusFn, minusFn, deleteFn }) => (
+const Orders = ({ orders, plusFn, minusFn, deleteFn, checkSubmit, total }) => (
   <Wrapper>
     <div className="cart-product bg-white row m-0 rounded mb-3 d-none d-md-flex">
       <p className="cart-product__title col-md-6 text-left">title</p>
@@ -22,18 +22,23 @@ const Orders = ({ orders, plusFn, minusFn, deleteFn }) => (
         delete={() => deleteFn(index)}
       />
     ))}
-    <div>
-      <p className="m-0 mt-4">
+    <div className="custom-flex flex-wrap mt-4">
+      <p className="col-md-8 m-md-0 text-md-right pr-5">
         Total Price :
-        <span className="badge badge-success ml-2 p-2" style={{ fontSize: 15 }}>
-          {Curency(
-            orders.reduce((acc, { price, count }) => acc + price * count, 0),
-            true
-          )}
-        </span>
+        <strong
+          className="ml-2 badge badge-secondary p-2 border-secondary px-2"
+          style={{ fontSize: 15 }}
+        >
+          {Curency(total, true)}
+        </strong>
       </p>
+      <div className="col-md-4 text-md-left">
+        <button onClick={checkSubmit} className="btn-continue fh text-white">
+          Continue
+        </button>
+      </div>
     </div>
   </Wrapper>
-);
+)
 
-export default Orders;
+export default Orders

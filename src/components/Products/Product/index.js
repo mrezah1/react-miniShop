@@ -3,7 +3,7 @@ import "./style.css";
 
 const Product = ({ title, price, image, addToCart }) => {
   return (
-    <div className="col-md-3 px-2 product-item mb-3 mb-md-0">
+    <div className="col-sm-6 col-md-4 col-lg-3 px-2 product-item mb-3">
       <div className="product-item__image">
         <img src={image} alt={title} className="w-100 rounded-top" height="150" />
       </div>
