@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from 'react'
+import { products as prImage } from '../../help/images'
 import Orders from '../../components/Orders'
 import Products from '../../components/Products'
-import Modal from '../../components/Ui/Modal'
 import FinalOrders from '../../components/FinalOrders'
-import { products as prImage } from '../../help/images'
+import FinalInfo from '../../components/FinalInfo'
+import Modal from '../../components/Ui/Modal'
+import Loading from '../../components/Ui/Loading'
 import './style.css'
 
 const Main = (props) => {
+  const [showModal, setShowModal] = useState(false)
   const [checkSubmit, setCheckSubmit] = useState(false)
+  const [finalInfo, setFinalInfo] = useState(false)
+  const [saveData, setSaveData] = useState({
+    loading: false,
+    saved: false,
+  })
   const [products, setProducts] = useState([
     {
       title: 'Book',
@@ -31,6 +39,11 @@ const Main = (props) => {
     },
   ])
   const [orders, setOrders] = useState([])
+
+  const totalPrice = orders.reduce(
+    (acc, { price, count }) => acc + price * count,
+    0,
+  )
   const plusCountHanlder = (productIndex) => {
     const newOrders = [...orders]
     newOrders[productIndex].count = newOrders[productIndex].count + 1
@@ -51,10 +64,10 @@ const Main = (props) => {
   const addToCartHandler = (event, product) => {
     adedTitle && (event.target.innerHTML = 'aded !')
     adedTitle = false
-      setTimeout(() => {
-        event.target.innerHTML = 'Add to Cart'
-        adedTitle = true
-      }, 2800)
+    setTimeout(() => {
+      event.target.innerHTML = 'Add to Cart'
+      adedTitle = true
+    }, 500)
     let newOrders = [...orders]
     const existing = orders.some((item) => item.title === product.title)
     if (existing)
@@ -69,6 +82,33 @@ const Main = (props) => {
       })
     setOrders(newOrders)
   }
+  const savePurchase = (data) => {
+    setSaveData({ ...saveData, loading: true })
+    setFinalInfo(false)
+    fetch('https://react-cart-bf608-default-rtdb.firebaseio.com/orders.json', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userInfo: data,
+        orders,
+        totalPrice: totalPrice,
+        orderCode: Math.floor(Math.random() * 100000),
+      }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        setSaveData({ loading: false, saved: true })
+        setOrders([])
+        setTimeout(resetModal, 15000)
+      })
+  }
+  const resetModal = () => {
+    setShowModal(false)
+    setCheckSubmit(false)
+    setFinalInfo(false)
+    setSaveData({ loading: false, saved: false })
+  }
+
   useEffect(() => {
     const orderItems = JSON.parse(localStorage.getItem('orders'))
     setOrders(orderItems)
@@ -76,10 +116,6 @@ const Main = (props) => {
   useEffect(() => {
     localStorage.setItem('orders', JSON.stringify(orders))
   }, [orders])
-  const totalPrice = orders.reduce(
-    (acc, { price, count }) => acc + price * count,
-    0,
-  )
   return (
     <div className="col-12 col-md-9 py-5 mx-auto main text-center">
       <h2>My Cart</h2>
@@ -91,7 +127,10 @@ const Main = (props) => {
             minusFn={minusProductHandler}
             deleteFn={deleteProductHandler}
             total={totalPrice}
-            checkSubmit={() => setCheckSubmit(true)}
+            checkSubmit={() => {
+              setShowModal(true)
+              setCheckSubmit(true)
+            }}
           />
         ) : (
           <p className="m-0">Your Cart is empty!</p>
@@ -105,13 +144,34 @@ const Main = (props) => {
         )}
       </section>
 
-      <Modal closer={() => setCheckSubmit(false)} isShow={checkSubmit}>
-        <FinalOrders
-          orders={orders}
-          total={totalPrice}
-          closer={() => setCheckSubmit(false)}
-          submit={() => alert(true)}
-        />
+      <Modal closer={resetModal} isShow={showModal}>
+        {checkSubmit && (
+          <FinalOrders
+            orders={orders}
+            total={totalPrice}
+            closer={resetModal}
+            submit={() => {
+              setCheckSubmit(false)
+              setFinalInfo(true)
+            }}
+          />
+        )}
+        {finalInfo && (
+          <FinalInfo
+            back={() => {
+              setFinalInfo(false)
+              setCheckSubmit(true)
+            }}
+            closer={resetModal}
+            submit={savePurchase}
+          />
+        )}
+        {saveData.loading && <Loading />}
+        {saveData.saved && (
+          <p className="text-success m-0">
+            Order registration completed successfully
+          </p>
+        )}
       </Modal>
     </div>
   )

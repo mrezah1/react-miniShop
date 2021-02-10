@@ -51,7 +51,7 @@
   background-color: transparent;
   border: none;
 }
-.cart-product__remove img{
+.cart-product__remove svg{
   width: 27px;
   height: 27px;
 }

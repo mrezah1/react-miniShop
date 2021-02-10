@@ -1,7 +1,7 @@
-import React from "react";
-import icons from "../../../help/icons";
-import Curency from "../../../util/Curency";
-import "./style.css";
+import React from 'react'
+import Icon from '../../../help/Icon'
+import Curency from '../../../util/Curency'
+import './style.css'
 
 const Order = ({ title, price, count, plus, minus, delete: deletePr }) => {
   return (
@@ -21,11 +21,11 @@ const Order = ({ title, price, count, plus, minus, delete: deletePr }) => {
       </p>
       <p className="cart-product__remove col-4 col-md-2">
         <button onClick={deletePr} className="text-danger fh">
-          <img src={icons.delete} alt="delete"/>
+          <Icon name="delete" />
         </button>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default Order;
+export default Order

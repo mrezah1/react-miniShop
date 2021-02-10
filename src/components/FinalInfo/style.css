@@ -1,0 +1,14 @@
+.final-info{
+    position: relative;
+}
+.back-btn{
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    padding:2.5px 9px;
+}
+.back-btn svg{
+    fill: #3a93eaff;
+    width: 25px;
+    height: 25px;
+}
