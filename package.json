@@ -37,11 +37,11 @@
       "last 1 safari version"
     ]
   },
-  "prettier":{
+  "prettier": {
     "semi": false,
     "singleQuote": true,
     "trailingComma": "all",
-     "printWidth":80,
-     "bracketSpacing": true
-  }  
+    "printWidth": 80,
+    "bracketSpacing": true
+  }
 }

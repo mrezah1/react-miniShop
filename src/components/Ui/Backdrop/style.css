@@ -1,15 +1,21 @@
-.backdrop{
-    position: fixed;
-    background-color: rgba(0,0,0,.66);
-    top: 0;
-    right: 0;
-    width: 100%;    
-    height: 100%;
-    z-index: 99;
+.backdrop {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.66);
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  transition: 0.32s ease-in;
 }
-.hideSc{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow-y: hidden;
+.hideSc {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+.closed {
+  opacity: 0;
+  visibility: hidden;
+  transition-delay: .2s;
 }

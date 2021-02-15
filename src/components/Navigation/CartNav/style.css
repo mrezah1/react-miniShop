@@ -1,0 +1,16 @@
+.cartNav__btn {
+  background-color: transparent;
+  position: relative;
+}
+.cartNav__icon {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+.cartNav__lbl{
+    position: absolute;
+    border-radius: 50rem;
+    right:-5px;
+    top: -8px;
+    box-shadow:0 0 5px 0 #ff4059;
+}

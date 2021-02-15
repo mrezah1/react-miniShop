@@ -51,7 +51,10 @@ const FinalInfo = ({ back, closer, submit }) => {
   const changeInputHandler = (event, id) => {
     const newForms = { ...forms }
     newForms[id].value = event.target.value
-    setforms(newForms)
+    setforms((prev)=>{
+      console.log(prev)
+      return newForms
+    })
   }
   const validation = (key) => {
     const newForm = { ...forms }

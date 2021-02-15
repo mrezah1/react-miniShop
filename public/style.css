@@ -22,4 +22,6 @@ button {
   opacity: 0.88;
   transition: 0.2s all;
 }
-
+.bg_danger {
+  background-color: #ff4059;
+}

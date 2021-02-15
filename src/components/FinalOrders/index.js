@@ -2,6 +2,7 @@ import Wrapper from '../../hoc/Wrapper'
 import Curency from '../../util/Curency'
 import Button from '../Ui/Botton'
 
+
 const FinalOrders = ({ orders, total,closer,submit }) => (
   <Wrapper>
     <h4>Final Orders</h4>
@@ -15,7 +16,7 @@ const FinalOrders = ({ orders, total,closer,submit }) => (
     </ul>
     <p className="m-0 mt-4">
       Total Price :
-      <strong className="pl-1 text-dark border-bottom pb-1 border-dark">
+      <strong className="pl-1 text-dark pb-1 border-dark">
         {Curency(total, true)}
       </strong>
     </p>

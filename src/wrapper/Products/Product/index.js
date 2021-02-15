@@ -1,7 +1,7 @@
 import Curency from "../../../util/Curency";
 import "./style.css";
 
-const Product = ({ title, price, image, addToCart }) => {
+const Product = ({ title, price, image, addToCart,textBtn }) => {
   return (
     <div className="col-sm-6 col-md-4 col-lg-3 px-2 product-item mb-3">
       <div className="product-item__image">
@@ -16,7 +16,7 @@ const Product = ({ title, price, image, addToCart }) => {
           onClick={addToCart}
           className="product-item__add mt-4 bg-primary py-1 fh text-white"
         >
-          Add to Cart
+          {textBtn}
         </button>
       </div>
     </div>

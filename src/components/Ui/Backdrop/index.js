@@ -1,12 +1,14 @@
 import './style.css'
 
 const Backdrop = ({ closer, isShow }) => {
+  // Handle show or hide scroll
   const doc = document.body.classList
   isShow ? doc.add('hideSc') : doc.remove('hideSc')
   return (
-    isShow && (
-      <div className="backdrop custom-flex" onClick={closer}></div>
-    )
+    <div
+      className={`backdrop custom-flex ${!isShow && 'closed'}`}
+      onClick={closer}
+    ></div>
   )
 }
 export default Backdrop
