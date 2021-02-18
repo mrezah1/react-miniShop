@@ -1,0 +1,18 @@
+.myBadge {
+  border-radius: 11px;
+  padding: 5px 10px;
+}
+.prevPurch__detailBtn a {
+  border: 1px solid #333;
+  color: #333;
+  border-radius: 3px;
+  padding: 4px 12px;
+}
+.prevPurch {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.white-loader:after {
+  border-color: #fff;
+  border-right-color: #444;
+}

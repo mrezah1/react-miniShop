@@ -1,6 +1,6 @@
 import Icon from '../../../help/Icon'
 import NavItem from '../NavItem'
-import { useCartState } from '../../../contex/CartProvider'
+import { useCartState } from '../../../context/CartProvider'
 import './style.css'
 
 const CartNav = () => {

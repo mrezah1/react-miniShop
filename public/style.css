@@ -6,7 +6,7 @@ body {
   padding: 0;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 button {
   outline: none !important;
@@ -24,4 +24,22 @@ button {
 }
 .bg_danger {
   background-color: #ff4059;
+}
+.bgc-warning {
+  background-color: rgb(226, 149, 5);
+}
+html,
+.scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}
+html::-webkit-scrollbar,
+.scroll::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+}
+html::-webkit-scrollbar-thumb,
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 50rem;
+  background: #555;
 }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { products as prImage } from '../../help/images'
 import Product from './Product'
-import { useCartState, useCartSetState } from '../../contex/CartProvider'
+import Wrapper from '../../hoc/Wrapper'
+import { useCartState, useCartSetState } from '../../context/CartProvider'
 import TitlePage from '../../components/Ui/TitlePage'
 
 const Products = () => {
@@ -61,25 +62,27 @@ const Products = () => {
     setOrders(newOrders)
   }
   return (
-    <section className="products-wrapper mt-5">
+    <Wrapper>
       <TitlePage>Products</TitlePage>
-      <div className="row mt-4 pt-3">
-        {products.length > 0 ? (
-          products.map(({ title, price, image, textBtn }, index) => (
-            <Product
-              key={title}
-              title={title}
-              price={price}
-              image={image}
-              textBtn={textBtn}
-              addToCart={(e) => addToCartHandler(index)}
-            />
-          ))
-        ) : (
-          <p>Not Exist Produc!</p>
-        )}
-      </div>
-    </section>
+      <section className="products-wrapper mt-4">
+        <div className="row mt-4 pt-3">
+          {products.length > 0 ? (
+            products.map(({ title, price, image, textBtn }, index) => (
+              <Product
+                key={title}
+                title={title}
+                price={price}
+                image={image}
+                textBtn={textBtn}
+                addToCart={(e) => addToCartHandler(index)}
+              />
+            ))
+          ) : (
+            <p>Not Exist Produc!</p>
+          )}
+        </div>
+      </section>
+    </Wrapper>
   )
 }
 

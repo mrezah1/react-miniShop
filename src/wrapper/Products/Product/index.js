@@ -1,4 +1,4 @@
-import Curency from "../../../util/Curency";
+import {Curency} from "../../../util";
 import "./style.css";
 
 const Product = ({ title, price, image, addToCart,textBtn }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../../../help/Icon'
-import Curency from '../../../util/Curency'
+import {Curency} from '../../../util'
 import './style.css'
 
 const Order = ({ title, price, count, plus, minus, delete: deletePr }) => {

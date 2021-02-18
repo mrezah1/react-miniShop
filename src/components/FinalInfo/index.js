@@ -7,9 +7,9 @@ import './style.css'
 
 const FinalInfo = ({ back, closer, submit }) => {
   const [forms, setforms] = useState({
-    firstName: {
+    fullName: {
       type: 'text',
-      placeHolder: 'Enter FirstName...',
+      placeHolder: 'Enter FullName...',
       value: '',
       validation: {
         required: true,

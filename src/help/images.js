@@ -5,4 +5,5 @@ const products = {
   airpod: require('../assets/airpod.jpg').default,
 }
 const logo = require('../assets/shopping-basket.png').default
-export { products, logo }
+const man = require('../assets/man.png').default
+export { products, logo, man }

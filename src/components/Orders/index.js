@@ -1,6 +1,6 @@
 import React from 'react'
 import Order from './Order'
-import Curency from '../../util/Curency'
+import { Curency } from '../../util'
 import Wrapper from '../../hoc/Wrapper'
 
 const Orders = ({ orders, plusFn, minusFn, deleteFn, checkSubmit, total }) => (

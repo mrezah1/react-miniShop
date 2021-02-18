@@ -1,0 +1,53 @@
+.spacer {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+/* buyer information styles */
+.buyer-info p,
+.purchase-info p {
+  margin-bottom: 0;
+}
+.purchase-titleBox {
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 0.8px 8px;
+  background-color: #454545;
+  color: #fff;
+  display: inline-block;
+}
+.buyer-info .wrapper-image img {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+}
+.buyer-info .wrapper-content .fullName {
+  font-size: 20px;
+  color: #1c2f7a;
+}
+.buyer-info .wrapper-content p:not(:first-child):not(:last-child) {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+/* orders information styles */
+.purchase-info__dateTime {
+  float: right;
+  color: #666;
+}
+.purchase-info .wrapper-order {
+  width: 100%;
+  overflow-x: auto;
+}
+.purchase-info .wrapper-order li {
+  list-style: none;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.15rem;
+  padding-bottom: 0.25rem;
+}
+.purchase-info .wrapper-order li:last-child {
+  border: none;
+}
+.purchase-info .wrapper-order .wrapper-image img {
+  width: 90%;
+  margin: 0 auto;
+  height: 55px;
+}
