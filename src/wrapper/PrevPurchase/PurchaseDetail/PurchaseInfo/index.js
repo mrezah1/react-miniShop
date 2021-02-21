@@ -1,18 +1,19 @@
 import { DateFormat, Curency } from '../../../../util'
 
-const PurchaseInfo = ({ buyInfo }) => {
-  const { dateTime, orderCode, status, totalPrice, orders } = buyInfo
+const PurchaseInfo = ({
+  buyInfo: { dateTime, orderCode, status, totalPrice, orders },
+}) => {
   return (
     <div className="purchase-info">
       <p className="purchase-titleBox">Purchase Information</p>
-      <p className="purchase-info__dateTime">
+      <div className="purchase-info__dateTime">
         <p className="text-right">
           {DateFormat(dateTime)[0]} <span className="float-right pl-2">📅</span>
         </p>
         <p className="text-right">
           {DateFormat(dateTime)[1]} <span className="float-right pl-2">🕐</span>
         </p>
-      </p>
+      </div>
       <div className="purchase-info__wrapper-content">
         <p className="mb-1 mt-2">
           <span>Order Code</span>
@@ -31,6 +32,7 @@ const PurchaseInfo = ({ buyInfo }) => {
           <span className="px-1"> : </span>
           <span className="text-primary">{Curency(totalPrice, true)}</span>
         </p>
+
         <div className="row m-0 bg-primary text-white d-none d-md-flex rounded mt-3">
           <p className="col-md-3">image</p>
           <p className="col-md-4">title</p>
@@ -39,7 +41,10 @@ const PurchaseInfo = ({ buyInfo }) => {
         </div>
         <ul className="wrapper-order mt-3">
           {orders.map(({ title, count, image, price }) => (
-            <li className="row mx-0 align-items-center text-center text-md-left">
+            <li
+              key={title}
+              className="row mx-0 align-items-center text-center text-md-left"
+            >
               <div className="col-5 col-md-3 wrapper-image pl-0">
                 <img src={image} />
               </div>

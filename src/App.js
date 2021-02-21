@@ -13,6 +13,7 @@ import CartProvider from './context/CartProvider'
 import PrevPurchase from './wrapper/PrevPurchase'
 import PurchaseDetail from './wrapper/PrevPurchase/PurchaseDetail'
 import TitlePage from './components/Ui/TitlePage'
+import NoMatch from './components/NoMatch'
 
 const App = () => {
   return (
@@ -34,10 +35,7 @@ const App = () => {
                 exact
                 component={PurchaseDetail}
               />
-              <Route
-                path="/404"
-                render={() => <TitlePage>Not Found Page!</TitlePage>}
-              />
+              <Route path="/404" component={NoMatch} />
               <Redirect from="*" to="/404" />
             </Switch>
           </Main>

@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { products as prImage } from '../../help/images'
 import Product from './Product'
 import Wrapper from '../../hoc/Wrapper'
-import { useCartState, useCartSetState } from '../../context/CartProvider'
+import { useCartSetState } from '../../context/CartProvider'
 import TitlePage from '../../components/Ui/TitlePage'
 
 const Products = () => {
-  const orders = useCartState()
   const setOrders = useCartSetState()
   const [products, setProducts] = useState([
     {
@@ -45,21 +44,25 @@ const Products = () => {
     }, 350)
     // add to cart
     const activeProduct = products[index]
-    let newOrders = [...orders]
-    const existing = orders.some((item) => item.title === activeProduct.title)
-    if (existing)
-      newOrders = newOrders.map((item) => {
-        item.title === activeProduct.title && (item.count = item.count + 1)
-        return item
-      })
-    else
-      newOrders.push({
-        title: activeProduct.title,
-        price: activeProduct.price,
-        image: activeProduct.image,
-        count: 1,
-      })
-    setOrders(newOrders)
+    setOrders((prevOrders) => {
+      let newOrders = [...prevOrders]
+      const existing = newOrders.some(
+        (item) => item.title === activeProduct.title,
+      )
+      if (existing)
+        newOrders = newOrders.map((item) => {
+          item.title === activeProduct.title && (item.count = item.count + 1)
+          return item
+        })
+      else
+        newOrders.push({
+          title: activeProduct.title,
+          price: activeProduct.price,
+          image: activeProduct.image,
+          count: 1,
+        })
+      return newOrders
+    })
   }
   return (
     <Wrapper>

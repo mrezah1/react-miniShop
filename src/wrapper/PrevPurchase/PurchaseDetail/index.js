@@ -18,19 +18,33 @@ const PurchaseDetail = ({ match }) => {
     )
       .then((response) => response.json())
       .then((response) => {
-        if (Object.keys(response).length < 1) response = '{}'
+        if (
+          Object.keys(response).length < 1 ||
+          response.hasOwnProperty('error')
+        )
+          response = '{}'
         else response = { ...Object.values(response)[0] }
         setDetailPurchase(response)
       })
       .catch((err) => setDetailPurchase('error'))
   }, [])
   let result = <Loading cls="white-loader" />
-  if (detailPurchase === '{}') result = <Redirect to="/404" />
+  if (detailPurchase === '{}')
+    result = (
+      <Redirect
+        to={{
+          pathname: '/404',
+          state: { msg: 'Purchase' },
+        }}
+      />
+    )
   else if (detailPurchase === 'error')
     result = (
-      <p className="alert alert-danger text-center">
-        Falied to load Purchases Detail!
-      </p>
+      <Wrapper>
+        <p className="alert alert-danger text-center">
+          Falied to load Purchases Detail!
+        </p>
+      </Wrapper>
     )
   else if (detailPurchase != null)
     result = (
