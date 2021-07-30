@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NavList from './NavList'
-import Main from '../../wrapper/Main'
+import Container from '../../wrapper/Container'
 import CartNav from './CartNav'
 import Logo from '../Logo'
 import NavItem from './NavItem'
@@ -10,7 +10,7 @@ const Navigation = (props) => {
   const [navStatus, setNavStatus] = useState(window.innerWidth > 768)
   return (
     <header className="bg-dark">
-      <Main cls="px-2">
+      <Container cls="px-2">
         <nav
           className="navbar navbar-dark navbar-expand-md"
           style={{ padding: '6px 0' }}
@@ -35,7 +35,7 @@ const Navigation = (props) => {
             <CartNav />
           </div>
         </nav>
-      </Main>
+      </Container>
     </header>
   )
 }

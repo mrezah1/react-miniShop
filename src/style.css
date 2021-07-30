@@ -1,0 +1,45 @@
+body {
+  background-color: skyblue !important;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none !important;
+}
+button {
+  outline: none !important;
+  border: none;
+  cursor: pointer;
+}
+.custom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fh:hover {
+  opacity: 0.88;
+  transition: 0.2s all;
+}
+.bg_danger {
+  background-color: #ff4059;
+}
+.bgc-warning {
+  background-color: rgb(226, 149, 5);
+}
+html,
+.scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+}
+html::-webkit-scrollbar,
+.scroll::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+}
+html::-webkit-scrollbar-thumb,
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 50rem;
+  background: #555;
+}
