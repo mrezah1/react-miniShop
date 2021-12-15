@@ -9,7 +9,7 @@ import './style.css'
 const Navigation = (props) => {
   const [navStatus, setNavStatus] = useState(window.innerWidth > 768)
   return (
-    <header className="bg-dark">
+    <header className="bg-light">
       <Container cls="px-2">
         <nav
           className="navbar navbar-dark navbar-expand-md"
